@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Verified - Confluency</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            text-align: center; 
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+        .app-link { 
+            background: #5468FF; 
+            color: white; 
+            padding: 15px 30px; 
+            text-decoration: none; 
+            border-radius: 8px;
+            display: inline-block;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            margin-top: 15px;
+        }
+        .app-link:hover {
+            background: #4050DD;
+        }
+        .info-text {
+            font-size: 14px;
+            margin-top: 20px;
+            opacity: 0.8;
+        }
+        .loading {
+            display: none;
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">Confluency</div>
+        
+        <div id="verifying" class="loading">
+            <h2 class="title">Verifying Your Email...</h2>
+            <div class="spinner"></div>
+        </div>
+        
+        <div id="success">
+            <div class="success-icon">✓</div>
+            <h2 class="title">Email Verified!</h2>
+            <p class="subtitle">Your email has been successfully verified. You can now log in to your Confluency account.</p>
+            
+            <a href="confluency://auth/email-verified" class="app-link" id="app-link">Open Confluency App</a>
+            
+            <p class="info-text">
+                📱 <strong>Mobile Users:</strong> Click the button above to return to the app.<br><br>
+                💻 <strong>Desktop Users:</strong> Please open the Confluency app on your mobile device and log in.
+            </p>
+        </div>
+        
+        <div id="error" style="display: none;">
+            <h2 class="title">Verification Failed</h2>
+            <p class="subtitle">We couldn't verify your email. The link may have expired or already been used.</p>
+            <p class="info-text">Please request a new verification email from the app.</p>
+        </div>
+    </div>
+
+    <script>
+        console.log('Confluency email verification page loaded');
+        
+        // Check if this is a Supabase confirmation link
+        const hash = window.location.hash;
+        const params = new URLSearchParams(window.location.search);
+        
+        console.log('Full URL:', window.location.href);
+        console.log('Hash:', hash);
+        console.log('Query params:', params.toString());
+        
+        // Show verifying state if we have parameters
+        if (hash || params.toString()) {
+            document.getElementById('verifying').style.display = 'block';
+            document.getElementById('success').style.display = 'none';
+            
+            // Supabase will handle the actual verification
+            // We'll show success after a short delay
+            setTimeout(() => {
+                document.getElementById('verifying').style.display = 'none';
+                
+                // Check for error parameters
+                if (params.get('error') || params.get('error_description')) {
+                    document.getElementById('error').style.display = 'block';
+                    console.error('Verification error:', params.get('error_description'));
+                } else {
+                    document.getElementById('success').style.display = 'block';
+                    
+                    // Try to open the app after verification
+                    setTimeout(() => {
+                        console.log('Attempting to open app...');
+                        window.location.href = 'confluency://auth/email-verified';
+                    }, 1000);
+                }
+            }, 1500);
+        }
+        
+        // Handle case where user comes back to this page
+        window.addEventListener('focus', () => {
+            console.log('Page regained focus - app might not have opened');
+        });
+        
+        // For debugging - log any errors
+        window.addEventListener('error', (e) => {
+            console.error('Page error:', e);
+        });
+    </script>
+</body>
+</html>
