@@ -94,41 +94,93 @@
         .store-badge:hover {
             background: rgba(255, 255, 255, 0.2);
         }
+        .screenshots {
+            margin: 60px 0;
+        }
+        .screenshots h3 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .screenshot-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .screenshot {
+            width: 200px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        .screenshot:hover {
+            transform: scale(1.05);
+        }
         @media (max-width: 768px) {
             .logo { font-size: 36px; }
             .tagline { font-size: 20px; }
             .features { flex-direction: column; align-items: center; }
             .feature { max-width: 300px; }
+            .screenshot { width: 150px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <img src="transparent_background_icon.png" alt="Confluency Logo" style="width: 120px; height: 120px; margin-bottom: 20px; border-radius: 20px;">
         <div class="logo">Confluency</div>
         <div class="tagline">AI-Powered Language Learning</div>
         
         <div class="description">
-            Master new languages through intelligent conversations with AI tutors. 
-            Practice speaking, improve pronunciation, and build confidence in real-world scenarios.
+            Learn languages naturally with our AI-powered conversational tutor. Practice speaking and listening with instant feedback, perfect for all skill levels.
         </div>
         
         <div class="features">
             <div class="feature">
-                <div class="feature-icon">🤖</div>
-                <div class="feature-title">AI Tutors</div>
-                <div>Personalized conversations with intelligent AI language partners</div>
+                <div class="feature-icon">💬</div>
+                <div class="feature-title">Natural Conversation Practice</div>
+                <div>Engage in real, free-speaking dynamic dialogues with AI tutors. Advanced speech recognition for interactive conversations.</div>
             </div>
             
             <div class="feature">
-                <div class="feature-icon">🗣️</div>
-                <div class="feature-title">Speech Practice</div>
-                <div>Improve pronunciation with real-time feedback and guidance</div>
+                <div class="feature-icon">🎯</div>
+                <div class="feature-title">Adaptive Learning Modes</div>
+                <div>Grammar lessons, topic conversations, interview practice, situation simulations, and vocabulary challenges.</div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🌍</div>
+                <div class="feature-title">Language Support</div>
+                <div>Currently supports French, Spanish, and Italian for English speakers. 18 languages coming in future versions.</div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🔊</div>
+                <div class="feature-title">Advanced Audio Features</div>
+                <div>High-quality text-to-speech with adjustable speed, crystal-clear audio playback, and real-time speech recognition.</div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">⚙️</div>
+                <div class="feature-title">Personalized Experience</div>
+                <div>Choose your skill level, customize topics, receive instant feedback, and track progress with detailed analytics.</div>
             </div>
             
             <div class="feature">
                 <div class="feature-icon">📱</div>
-                <div class="feature-title">Mobile First</div>
-                <div>Learn anywhere, anytime with our mobile-optimized experience</div>
+                <div class="feature-title">Seamless Experience</div>
+                <div>Clean mobile interface, offline-capable audio features, and secure user authentication.</div>
+            </div>
+        </div>
+        
+        <div class="screenshots">
+            <h3>See Confluency in Action</h3>
+            <div class="screenshot-gallery">
+                <img src="screenshots/IMG_5944.PNG" alt="Confluency App Screenshot 1" class="screenshot">
+                <img src="screenshots/IMG_5946.PNG" alt="Confluency App Screenshot 2" class="screenshot">
+                <img src="screenshots/IMG_5947.PNG" alt="Confluency App Screenshot 3" class="screenshot">
             </div>
         </div>
         
@@ -138,15 +190,15 @@
             </div>
             
             <div class="app-stores">
-                <a href="#" class="store-badge">
+                <a href="https://apps.apple.com/app/confluency-ai/id6745500943" class="store-badge">
                     <span>📱</span>
                     <span>Download for iOS</span>
                 </a>
                 
-                <a href="#" class="store-badge">
+                <div class="store-badge" style="opacity: 0.6; cursor: not-allowed;">
                     <span>🤖</span>
-                    <span>Download for Android</span>
-                </a>
+                    <span>Android - Coming Soon</span>
+                </div>
             </div>
         </div>
         
