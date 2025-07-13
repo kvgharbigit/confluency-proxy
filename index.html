@@ -458,10 +458,57 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.4);
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
         }
         .screenshot:hover {
             transform: translateY(-10px) scale(1.05);
             box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+        }
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+        }
+        
+        .lightbox-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+        
+        .lightbox-close:hover {
+            background: rgba(0, 0, 0, 0.8);
         }
         
         .footer {
@@ -623,6 +670,26 @@
             const animatedElements = document.querySelectorAll('.fade-in');
             animatedElements.forEach(el => observer.observe(el));
         });
+
+        function openLightbox(img) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightbox.style.display = 'block';
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
     </script>
     <script async src="https://www.tiktok.com/embed.js"></script>
 </head>
@@ -652,6 +719,41 @@
                     Learn More
                 </a>
             </div>
+        </div>
+    </section>
+    
+    <section class="screenshots">
+        <h3 class="fade-in">See Confluency in Action</h3>
+        <p class="screenshots-subtitle fade-in">Experience the intuitive interface designed for effective language learning</p>
+        <div class="screenshot-gallery fade-in">
+            <img src="screenshots/IMG_5944.PNG" alt="Confluency App Screenshot 1" class="screenshot" onclick="openLightbox(this)">
+            <img src="screenshots/IMG_5946.PNG" alt="Confluency App Screenshot 2" class="screenshot" onclick="openLightbox(this)">
+            <img src="screenshots/IMG_5947.PNG" alt="Confluency App Screenshot 3" class="screenshot" onclick="openLightbox(this)">
+            <img src="screenshots/IMG_6356.jpg" alt="Confluency App Screenshot 4" class="screenshot" onclick="openLightbox(this)">
+            <img src="screenshots/IMG_6357.PNG" alt="Confluency App Screenshot 5" class="screenshot" onclick="openLightbox(this)">
+            <img src="screenshots/IMG_6358.PNG" alt="Confluency App Screenshot 6" class="screenshot" onclick="openLightbox(this)">
+        </div>
+        
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
+    </section>
+    
+    <section class="social-showcase">
+        <h2 class="section-title fade-in">See Real Users Learning</h2>
+        <p class="section-subtitle fade-in">Watch how Confluency users are improving their language skills</p>
+        
+        <div class="tiktok-container fade-in">
+            <iframe 
+                src="https://www.tiktok.com/embed/7526081478887836946" 
+                width="325" 
+                height="580" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+                style="border-radius: 8px; background: transparent;">
+            </iframe>
         </div>
     </section>
     
@@ -695,36 +797,6 @@
                 <div class="feature-title">Seamless Experience</div>
                 <div class="feature-description">Clean mobile interface, offline-capable audio features, and secure user authentication.</div>
             </div>
-        </div>
-    </section>
-    
-    <section class="screenshots">
-        <h3 class="fade-in">See Confluency in Action</h3>
-        <p class="screenshots-subtitle fade-in">Experience the intuitive interface designed for effective language learning</p>
-        <div class="screenshot-gallery fade-in">
-            <img src="screenshots/IMG_5944.PNG" alt="Confluency App Screenshot 1" class="screenshot">
-            <img src="screenshots/IMG_5946.PNG" alt="Confluency App Screenshot 2" class="screenshot">
-            <img src="screenshots/IMG_5947.PNG" alt="Confluency App Screenshot 3" class="screenshot">
-            <img src="screenshots/IMG_6356.jpg" alt="Confluency App Screenshot 4" class="screenshot">
-            <img src="screenshots/IMG_6357.PNG" alt="Confluency App Screenshot 5" class="screenshot">
-            <img src="screenshots/IMG_6358.PNG" alt="Confluency App Screenshot 6" class="screenshot">
-        </div>
-    </section>
-    
-    <section class="social-showcase">
-        <h2 class="section-title fade-in">See Real Users Learning</h2>
-        <p class="section-subtitle fade-in">Watch how Confluency users are improving their language skills</p>
-        
-        <div class="tiktok-container fade-in">
-            <iframe 
-                src="https://www.tiktok.com/embed/7526081478887836946" 
-                width="325" 
-                height="580" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen
-                style="border-radius: 8px; background: transparent;">
-            </iframe>
         </div>
     </section>
     
