@@ -533,6 +533,25 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.6);
         }
+        
+        .social-showcase {
+            padding: 100px 20px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .tiktok-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .tiktok-container iframe {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
         @media (max-width: 768px) {
             .logo { font-size: 48px; }
             .tagline { font-size: 24px; }
@@ -605,6 +624,7 @@
             animatedElements.forEach(el => observer.observe(el));
         });
     </script>
+    <script async src="https://www.tiktok.com/embed.js"></script>
 </head>
 <body>
     <section class="hero-section">
@@ -685,6 +705,26 @@
             <img src="screenshots/IMG_5944.PNG" alt="Confluency App Screenshot 1" class="screenshot">
             <img src="screenshots/IMG_5946.PNG" alt="Confluency App Screenshot 2" class="screenshot">
             <img src="screenshots/IMG_5947.PNG" alt="Confluency App Screenshot 3" class="screenshot">
+            <img src="screenshots/IMG_6356.jpg" alt="Confluency App Screenshot 4" class="screenshot">
+            <img src="screenshots/IMG_6357.PNG" alt="Confluency App Screenshot 5" class="screenshot">
+            <img src="screenshots/IMG_6358.PNG" alt="Confluency App Screenshot 6" class="screenshot">
+        </div>
+    </section>
+    
+    <section class="social-showcase">
+        <h2 class="section-title fade-in">See Real Users Learning</h2>
+        <p class="section-subtitle fade-in">Watch how Confluency users are improving their language skills</p>
+        
+        <div class="tiktok-container fade-in">
+            <iframe 
+                src="https://www.tiktok.com/embed/7526081478887836946" 
+                width="325" 
+                height="580" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+                style="border-radius: 8px; background: transparent;">
+            </iframe>
         </div>
     </section>
     
@@ -774,9 +814,6 @@
                     </a>
                     <a href="https://www.tiktok.com/@confluency.ai?is_from_webapp=1&sender_device=pc" class="social-link" target="_blank">
                         <i class="fab fa-tiktok"></i>
-                    </a>
-                    <a href="https://twitter.com/confluency_ai" class="social-link" target="_blank">
-                        <i class="fab fa-twitter"></i>
                     </a>
                     <a href="mailto:confluencyapp@gmail.com" class="social-link">
                         <i class="fas fa-envelope"></i>
