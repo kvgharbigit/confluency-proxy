@@ -574,6 +574,74 @@
             transform: translateY(-3px);
         }
         
+        .top-social-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            padding: 12px 0;
+        }
+        
+        .top-social-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .top-social-brand {
+            font-size: 18px;
+            font-weight: 700;
+            color: #667eea;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .top-social-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .top-social-link {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .top-social-link:hover {
+            background: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .social-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-right: 15px;
+            font-weight: 500;
+        }
+        
+        .hero-section {
+            padding-top: 80px;
+        }
+        
         .footer-bottom {
             text-align: center;
             padding-top: 40px;
@@ -611,6 +679,28 @@
             .testimonials-grid { grid-template-columns: 1fr; }
             .footer-content { grid-template-columns: 1fr; text-align: center; }
             .social-links { justify-content: center; }
+            
+            .top-social-container {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+            
+            .top-social-brand {
+                font-size: 16px;
+            }
+            
+            .social-label {
+                display: none;
+            }
+            
+            .top-social-links {
+                gap: 12px;
+            }
+            
+            .hero-section {
+                padding-top: 100px;
+            }
         }
         
         html {
@@ -694,6 +784,27 @@
     <script async src="https://www.tiktok.com/embed.js"></script>
 </head>
 <body>
+    <div class="top-social-bar">
+        <div class="top-social-container">
+            <a href="#" class="top-social-brand">
+                <i class="fas fa-globe"></i>
+                Confluency
+            </a>
+            <div class="top-social-links">
+                <span class="social-label">Follow us:</span>
+                <a href="https://www.instagram.com/confluency_ai/" class="top-social-link" target="_blank" aria-label="Follow us on Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@confluency.ai?is_from_webapp=1&sender_device=pc" class="top-social-link" target="_blank" aria-label="Follow us on TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="mailto:confluencyapp@gmail.com" class="top-social-link" aria-label="Contact us via email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
     <section class="hero-section">
         <div class="animated-bg"></div>
         <div class="floating-shapes">
