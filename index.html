@@ -643,6 +643,38 @@
             display: inline;
         }
         
+        .hero-flags {
+            justify-content: center;
+            margin-top: 30px;
+            margin-bottom: 50px;
+            gap: 12px;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+        
+        .hero-flags .flag-icon {
+            width: 36px;
+            height: 26px;
+            font-size: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .hero-flags .flag-icon:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
         .top-social-brand {
             font-size: 18px;
             font-weight: 700;
@@ -734,23 +766,20 @@
                 padding: 8px 20px;
             }
             
-            .language-flags {
-                margin-left: 10px;
-            }
-            
-            .flag-icon {
+            .hero-flags .flag-icon {
                 width: auto;
                 height: auto;
                 background: none;
                 border: none;
-                font-size: 16px;
+                font-size: 20px;
+                box-shadow: none;
             }
             
-            .flag-text {
+            .hero-flags .flag-text {
                 display: none;
             }
             
-            .flag-emoji {
+            .hero-flags .flag-emoji {
                 display: inline;
             }
             
@@ -854,38 +883,10 @@
 <body>
     <div class="top-social-bar">
         <div class="top-social-container">
-            <div class="brand-and-flags">
-                <a href="#" class="top-social-brand">
-                    <img src="transparent_background_icon.png" alt="Confluency Logo" style="width: 32px; height: 32px; border-radius: 8px;">
-                    Confluency
-                </a>
-                <div class="language-flags">
-                    <span class="flag-icon" title="English">
-                        <span class="flag-text">EN</span>
-                        <span class="flag-emoji">🇺🇸</span>
-                    </span>
-                    <span class="flag-icon" title="Spanish">
-                        <span class="flag-text">ES</span>
-                        <span class="flag-emoji">🇪🇸</span>
-                    </span>
-                    <span class="flag-icon" title="French">
-                        <span class="flag-text">FR</span>
-                        <span class="flag-emoji">🇫🇷</span>
-                    </span>
-                    <span class="flag-icon" title="Portuguese">
-                        <span class="flag-text">PT</span>
-                        <span class="flag-emoji">🇵🇹</span>
-                    </span>
-                    <span class="flag-icon" title="German">
-                        <span class="flag-text">DE</span>
-                        <span class="flag-emoji">🇩🇪</span>
-                    </span>
-                    <span class="flag-icon" title="Italian">
-                        <span class="flag-text">IT</span>
-                        <span class="flag-emoji">🇮🇹</span>
-                    </span>
-                </div>
-            </div>
+            <a href="#" class="top-social-brand">
+                <img src="transparent_background_icon.png" alt="Confluency Logo" style="width: 32px; height: 32px; border-radius: 8px;">
+                Confluency
+            </a>
             <div class="top-social-links">
                 <span class="social-label">Follow us:</span>
                 <a href="https://www.instagram.com/confluency_ai/" class="top-social-link" target="_blank" aria-label="Follow us on Instagram">
@@ -915,6 +916,33 @@
             
             <div class="description">
                 Learn languages naturally with our AI-powered conversational tutor. Practice speaking and listening with instant feedback, perfect for all skill levels.
+            </div>
+            
+            <div class="language-flags hero-flags">
+                <span class="flag-icon" title="English">
+                    <span class="flag-text">EN</span>
+                    <span class="flag-emoji">🇺🇸</span>
+                </span>
+                <span class="flag-icon" title="Spanish">
+                    <span class="flag-text">ES</span>
+                    <span class="flag-emoji">🇪🇸</span>
+                </span>
+                <span class="flag-icon" title="French">
+                    <span class="flag-text">FR</span>
+                    <span class="flag-emoji">🇫🇷</span>
+                </span>
+                <span class="flag-icon" title="Portuguese">
+                    <span class="flag-text">PT</span>
+                    <span class="flag-emoji">🇵🇹</span>
+                </span>
+                <span class="flag-icon" title="German">
+                    <span class="flag-text">DE</span>
+                    <span class="flag-emoji">🇩🇪</span>
+                </span>
+                <span class="flag-icon" title="Italian">
+                    <span class="flag-text">IT</span>
+                    <span class="flag-emoji">🇮🇹</span>
+                </span>
             </div>
             
             <div class="cta-buttons">
