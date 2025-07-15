@@ -604,6 +604,45 @@
             padding: 0 20px;
         }
         
+        .brand-and-flags {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .language-flags {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .flag-icon {
+            width: 28px;
+            height: 20px;
+            border-radius: 3px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 10px;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+        
+        .flag-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .flag-emoji {
+            display: none;
+        }
+        
+        .flag-text {
+            display: inline;
+        }
+        
         .top-social-brand {
             font-size: 18px;
             font-weight: 700;
@@ -693,6 +732,26 @@
                 flex-direction: row;
                 gap: 8px;
                 padding: 8px 20px;
+            }
+            
+            .language-flags {
+                margin-left: 10px;
+            }
+            
+            .flag-icon {
+                width: auto;
+                height: auto;
+                background: none;
+                border: none;
+                font-size: 16px;
+            }
+            
+            .flag-text {
+                display: none;
+            }
+            
+            .flag-emoji {
+                display: inline;
             }
             
             .top-social-brand {
@@ -795,10 +854,38 @@
 <body>
     <div class="top-social-bar">
         <div class="top-social-container">
-            <a href="#" class="top-social-brand">
-                <img src="transparent_background_icon.png" alt="Confluency Logo" style="width: 32px; height: 32px; border-radius: 8px;">
-                Confluency
-            </a>
+            <div class="brand-and-flags">
+                <a href="#" class="top-social-brand">
+                    <img src="transparent_background_icon.png" alt="Confluency Logo" style="width: 32px; height: 32px; border-radius: 8px;">
+                    Confluency
+                </a>
+                <div class="language-flags">
+                    <span class="flag-icon" title="English">
+                        <span class="flag-text">EN</span>
+                        <span class="flag-emoji">🇺🇸</span>
+                    </span>
+                    <span class="flag-icon" title="Spanish">
+                        <span class="flag-text">ES</span>
+                        <span class="flag-emoji">🇪🇸</span>
+                    </span>
+                    <span class="flag-icon" title="French">
+                        <span class="flag-text">FR</span>
+                        <span class="flag-emoji">🇫🇷</span>
+                    </span>
+                    <span class="flag-icon" title="Portuguese">
+                        <span class="flag-text">PT</span>
+                        <span class="flag-emoji">🇵🇹</span>
+                    </span>
+                    <span class="flag-icon" title="German">
+                        <span class="flag-text">DE</span>
+                        <span class="flag-emoji">🇩🇪</span>
+                    </span>
+                    <span class="flag-icon" title="Italian">
+                        <span class="flag-text">IT</span>
+                        <span class="flag-emoji">🇮🇹</span>
+                    </span>
+                </div>
+            </div>
             <div class="top-social-links">
                 <span class="social-label">Follow us:</span>
                 <a href="https://www.instagram.com/confluency_ai/" class="top-social-link" target="_blank" aria-label="Follow us on Instagram">
@@ -897,7 +984,7 @@
             <div class="feature">
                 <div class="feature-icon">🌍</div>
                 <div class="feature-title">Language Support</div>
-                <div class="feature-description">Currently supports French, Spanish, and Italian for English speakers. 18 languages coming in future versions.</div>
+                <div class="feature-description">Supports English, Spanish, French, Portuguese, German, and Italian. More languages coming soon!</div>
             </div>
             
             <div class="feature">
